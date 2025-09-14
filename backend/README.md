@@ -1,4 +1,4 @@
-# Twitter Clone Backend API
+# Text Talk Backend API
 
 A Node.js/Express backend API for a Twitter-like social media platform with content moderation features.
 
