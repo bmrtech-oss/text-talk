@@ -1,4 +1,4 @@
-# Twitter Clone Frontend
+# Text Talk Frontend
 
 A React-based frontend for a Twitter-like social media platform with content moderation features.
 
