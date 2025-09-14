@@ -1,6 +1,6 @@
-# Twitter Clone with Content Moderation
+# Text-only social media platform 
 
-A full-stack Twitter-like social media platform with AI-powered content moderation to ensure compliance with country-specific laws and regulations.
+A full-stack text only social media platform with AI-powered content moderation to ensure compliance with country-specific laws and regulations.
 
 ## Project Structure
 
