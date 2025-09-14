@@ -1,0 +1,160 @@
+.profile {
+  max-width: 600px;
+  margin: 0 auto;
+  border-right: 1px solid #e1e8ed;
+  border-left: 1px solid #e1e8ed;
+  min-height: 100vh;
+}
+
+.profile-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.profile-error {
+  text-align: center;
+  padding: 60px 20px;
+  color: #e0245e;
+}
+
+.profile-error i {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.profile-error h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.profile-error p {
+  font-size: 16px;
+  color: #657786;
+}
+
+.profile-tabs {
+  display: flex;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.tab {
+  flex: 1;
+  padding: 16px;
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #657786;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.tab:hover {
+  color: #1da1f2;
+  background: #f7f9fa;
+}
+
+.tab.active {
+  color: #1da1f2;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #1da1f2;
+  border-radius: 2px;
+}
+
+.profile-content {
+  padding: 0;
+}
+
+.tab-content {
+  padding: 40px 20px;
+  text-align: center;
+  color: #657786;
+}
+
+.tab-content p {
+  font-size: 16px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile {
+    border-right: none;
+    border-left: none;
+  }
+  
+  .profile-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .tab {
+    flex: none;
+    min-width: 80px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab {
+    min-width: 70px;
+    padding: 12px;
+    font-size: 13px;
+  }
+  
+  .tab-content {
+    padding: 32px 16px;
+  }
+  
+  .tab-content p {
+    font-size: 14px;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .profile {
+    border-color: #2f3336;
+  }
+  
+  .profile-error {
+    color: #fecaca;
+  }
+  
+  .profile-error p {
+    color: #6e767d;
+  }
+  
+  .profile-tabs {
+    border-color: #2f3336;
+  }
+  
+  .tab {
+    color: #6e767d;
+  }
+  
+  .tab:hover {
+    color: #1da1f2;
+    background: #15181c;
+  }
+  
+  .tab.active {
+    color: #1da1f2;
+  }
+  
+  .tab-content {
+    color: #6e767d;
+  }
+}

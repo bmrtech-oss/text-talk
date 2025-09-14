@@ -1,0 +1,3 @@
+# Pramod Rathod
+
+The webpage is a professional profile for **Pramod M Rathod**, a **Senior Staff Engineer & Solutions Architect** with over 18 years of experience in **SaaS product development**, **AI innovation**, **Identity and Access Management (IAM)**, and **cloud transformation** on platforms like **Azure** and **AWS**. He has expertise in **machine learning**, **predictive analytics**, **API development**, and **cloud-native solutions**, and has worked with major companies such as **Atlas Inc**, **Tech9 Inc**, **Avalara Technologies**, and **IBM India**. His skills include programming languages like **Python**, **JavaScript**, **Java**, and **C#**, as well as **DevOps tools** and **cloud infrastructure** technologies.

@@ -1,0 +1,149 @@
+.moderation-alert {
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  border: 1px solid;
+  animation: slideIn 0.3s ease-out;
+}
+
+.moderation-alert--success {
+  background: #f0f9f0;
+  border-color: #4ade80;
+  color: #166534;
+}
+
+.moderation-alert--warning {
+  background: #fefce8;
+  border-color: #facc15;
+  color: #854d0e;
+}
+
+.moderation-alert--error {
+  background: #fef2f2;
+  border-color: #f87171;
+  color: #dc2626;
+}
+
+.moderation-alert__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.moderation-alert__header i {
+  font-size: 18px;
+}
+
+.moderation-alert__header h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  flex: 1;
+}
+
+.moderation-alert__close {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.moderation-alert__close:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.moderation-alert__content p {
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.moderation-alert__suggestions {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.moderation-alert__suggestions strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.moderation-alert__suggestions ul {
+  margin: 8px 0 0 0;
+  padding-left: 16px;
+}
+
+.moderation-alert__suggestions li {
+  margin-bottom: 2px;
+  line-height: 1.4;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .moderation-alert {
+    margin: 12px 0;
+    padding: 12px;
+  }
+  
+  .moderation-alert__header {
+    gap: 6px;
+  }
+  
+  .moderation-alert__header i {
+    font-size: 16px;
+  }
+  
+  .moderation-alert__header h4 {
+    font-size: 14px;
+  }
+  
+  .moderation-alert__suggestions {
+    padding: 8px;
+    font-size: 13px;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .moderation-alert--success {
+    background: #1a2e1a;
+    border-color: #4ade80;
+    color: #bbf7d0;
+  }
+  
+  .moderation-alert--warning {
+    background: #2a2a1e;
+    border-color: #facc15;
+    color: #fef08a;
+  }
+  
+  .moderation-alert--error {
+    background: #2a1a1a;
+    border-color: #f87171;
+    color: #fecaca;
+  }
+  
+  .moderation-alert__suggestions {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .moderation-alert__close:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

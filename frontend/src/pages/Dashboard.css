@@ -1,0 +1,296 @@
+.dashboard {
+  min-height: 100vh;
+  background: #f7f9fa;
+}
+
+.dashboard-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 275px 1fr 350px;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dashboard-sidebar {
+  position: fixed;
+  width: 275px;
+  height: 100vh;
+  border-right: 1px solid #e1e8ed;
+  background: white;
+  z-index: 100;
+}
+
+.dashboard-main {
+  grid-column: 2;
+  background: white;
+  border-right: 1px solid #e1e8ed;
+}
+
+.dashboard-aside {
+  grid-column: 3;
+  padding: 20px;
+  background: #f7f9fa;
+}
+
+.dashboard-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 16px 20px;
+  border-bottom: 1px solid #e1e8ed;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu-button {
+  display: none;
+  padding: 8px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: #657786;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+.mobile-menu-button:hover {
+  background: #f7f9fa;
+  color: #1da1f2;
+}
+
+.tabs {
+  display: flex;
+  gap: 32px;
+}
+
+.tab {
+  padding: 12px 0;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #657786;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tab:hover {
+  color: #1da1f2;
+}
+
+.tab.active {
+  color: #14171a;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #1da1f2;
+  border-radius: 2px;
+}
+
+.dashboard-content {
+  padding: 0;
+}
+
+.following-feed {
+  padding: 20px;
+}
+
+.mobile-sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 275px;
+  background: white;
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.close-sidebar {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  color: #657786;
+  cursor: pointer;
+}
+
+.close-sidebar:hover {
+  background: #f7f9fa;
+  color: #1da1f2;
+}
+
+.fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1da1f2;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 99;
+}
+
+.fab:hover {
+  background: #1a91da;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(29, 161, 242, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 1264px) {
+  .dashboard-container {
+    grid-template-columns: 88px 1fr 350px;
+  }
+  
+  .dashboard-sidebar {
+    width: 88px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-container {
+    grid-template-columns: 88px 1fr;
+  }
+  
+  .dashboard-aside {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-sidebar {
+    display: none;
+  }
+  
+  .dashboard-main {
+    grid-column: 1;
+    border-right: none;
+  }
+  
+  .mobile-menu-button {
+    display: block;
+  }
+  
+  .mobile-sidebar-overlay {
+    display: block;
+  }
+  
+  .fab {
+    display: flex;
+  }
+  
+  .tabs {
+    gap: 24px;
+  }
+  
+  .tab {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header {
+    padding: 12px 16px;
+  }
+  
+  .tabs {
+    gap: 16px;
+  }
+  
+  .tab {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+  
+  .fab {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .dashboard {
+    background: #000;
+  }
+  
+  .dashboard-sidebar {
+    background: #000;
+    border-color: #2f3336;
+  }
+  
+  .dashboard-main {
+    background: #000;
+    border-color: #2f3336;
+  }
+  
+  .dashboard-aside {
+    background: #000;
+  }
+  
+  .dashboard-header {
+    background: rgba(0, 0, 0, 0.95);
+    border-color: #2f3336;
+  }
+  
+  .tab {
+    color: #6e767d;
+  }
+  
+  .tab.active {
+    color: #fff;
+  }
+  
+  .mobile-sidebar {
+    background: #000;
+  }
+  
+  .mobile-sidebar-overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}

@@ -1,0 +1,40 @@
+# Example Kubernetes deployment for tweet service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tweet-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tweet-service
+  template:
+    metadata:
+      labels:
+        app: tweet-service
+    spec:
+      containers:
+      - name: tweet-service
+        image: tweet-service:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: REDIS_HOST
+          value: "redis-cluster"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: database-credentials
+              key: url
+# ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tweet-service
+spec:
+  selector:
+    app: tweet-service
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000

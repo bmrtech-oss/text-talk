@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: twitter-clone-mongodb-stage
+    environment:
+      MONGO_INITDB_DATABASE: twitter_clone_stage
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data_stage:/data/db
+    networks:
+      - twitter-network-stage
+
+  redis:
+    image: redis:7-alpine
+    container_name: twitter-clone-redis-stage
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data_stage:/data
+    networks:
+      - twitter-network-stage
+
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile.production
+    container_name: twitter-clone-backend-stage
+    environment:
+      - NODE_ENV=staging
+      - MONGODB_URI=mongodb://mongodb:27017/twitter_clone_stage
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=staging_jwt_secret_change_in_production
+      - PORT=5000
+    ports:
+      - "5001:5000"
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - twitter-network-stage
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile.production
+    container_name: twitter-clone-frontend-stage
+    environment:
+      - REACT_APP_API_URL=http://localhost:5001
+    ports:
+      - "3001:80"
+    depends_on:
+      - backend
+    networks:
+      - twitter-network-stage
+
+volumes:
+  mongodb_data_stage:
+    driver: local
+  redis_data_stage:
+    driver: local
+
+networks:
+  twitter-network-stage:
+    driver: bridge
+    
